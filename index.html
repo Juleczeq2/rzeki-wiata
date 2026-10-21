@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rzeki świata | Odkryj największe rzeki</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#07131f;color:#eef7ff;font-family:Arial,sans-serif}
+header{padding:22px 8%;display:flex;justify-content:space-between;align-items:center;background:#0b1c2b;border-bottom:1px solid #20394b}
+.logo{font-size:22px;font-weight:bold;color:#5eead4}
+nav a{color:#d4e5f2;text-decoration:none;margin-left:20px;font-size:14px}
+nav a:hover{color:#5eead4}
+.hero{padding:70px 8% 50px;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+.tag{color:#5eead4;text-transform:uppercase;letter-spacing:3px;font-size:12px;font-weight:bold}
+h1{font-size:clamp(38px,5vw,64px);line-height:1.05;margin:15px 0}
+p{line-height:1.8;color:#b8cbd9}
+.hero img{width:100%;height:360px;object-fit:cover;border-radius:22px;border:1px solid #294456}
+.button{display:inline-block;margin-top:15px;padding:13px 20px;background:#5eead4;color:#06202a;text-decoration:none;border-radius:10px;font-weight:bold}
+section{padding:30px 8% 70px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px}
+h2{font-size:30px;margin-bottom:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:28px}
+.card{background:#102435;border:1px solid #223e50;border-radius:18px;overflow:hidden;transition:.2s}
+.card:hover{transform:translateY(-5px);border-color:#5eead4}
+.card img{width:100%;height:180px;object-fit:cover;display:block}
+.card-content{padding:20px}
+.card h3{margin:0;font-size:22px}
+.card p{font-size:14px;min-height:70px}
+.card a{color:#5eead4;text-decoration:none;font-weight:bold}
+.number{color:#5eead4;font-size:12px;letter-spacing:2px}
+footer{text-align:center;padding:25px;background:#0b1c2b;color:#8ba5b7;font-size:13px}
+@media(max-width:700px){.hero{grid-template-columns:1fr;padding-top:40px}header{align-items:flex-start;gap:15px;flex-direction:column}nav a{margin:0 12px 0 0}.hero img{height:240px}.section-head{display:block}}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo">🌊 RZEKI ŚWIATA</div>
+  <nav>
+    <a href="index.html">Strona główna</a>
+    <a href="#rzeki">Poznaj rzeki</a>
+  </nav>
+</header>
+
+<main>
+<div class="hero">
+  <div>
+    <div class="tag">Wielkie cuda natury</div>
+    <h1>5 najdłuższych rzek na świecie</h1>
+    <p>Przemierzają kontynenty, zasilają ogromne ekosystemy i od tysięcy lat pomagają rozwijać się cywilizacjom. Poznaj pięć niezwykłych rzek naszej planety.</p>
+    <a class="button" href="#rzeki">Odkryj rzeki ↓</a>
+  </div>
+  <img src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=1200&q=85" alt="Malownicza rzeka pośród przyrody">
+</div>
+
+<section id="rzeki">
+  <div class="section-head">
+    <div>
+      <div class="tag">Przewodnik geograficzny</div>
+      <h2>Wybierz rzekę</h2>
+      <p>Otwórz kartę, aby poznać jej długość, położenie i ciekawostki.</p>
+    </div>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1539768942893-daf53e448371?auto=format&fit=crop&w=900&q=85" alt="Krajobraz Egiptu nad Nilem">
+      <div class="card-content"><div class="number">01 / AFRYKA</div><h3>Nil</h3><p>Około 6650 km. Jedna z najważniejszych rzek w historii ludzkości.</p><a href="nil.html">Poznaj Nil →</a></div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=85" alt="Gęsty las tropikalny Amazonii">
+      <div class="card-content"><div class="number">02 / AMERYKA POŁUDNIOWA</div><h3>Amazonka</h3><p>Około 6400 km. Przepływa przez największy obszar lasów deszczowych.</p><a href="amazonka.html">Poznaj Amazonkę →</a></div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=900&q=85" alt="Krajobraz Chin">
+      <div class="card-content"><div class="number">03 / AZJA</div><h3>Jangcy</h3><p>Około 6300 km. Najdłuższa rzeka Chin i całej Azji.</p><a href="jangcy.html">Poznaj Jangcy →</a></div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85" alt="Rozległy krajobraz nad wodą">
+      <div class="card-content"><div class="number">04 / AMERYKA PÓŁNOCNA</div><h3>Missisipi–Missouri</h3><p>Około 6275 km w systemie rzecznym. Ogromny system wodny Ameryki Północnej.</p><a href="missisipi.html">Poznaj Missisipi →</a></div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85" alt="Surowy krajobraz górski">
+      <div class="card-content"><div class="number">05 / AZJA</div><h3>Jenisej</h3><p>Około 5539 km wraz z dopływami. Przepływa przez Mongolię i Rosję.</p><a href="jenisej.html">Poznaj Jenisej →</a></div>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer>🌊 Rzeki świata · Projekt edukacyjny</footer>
+</body>
+</html>
