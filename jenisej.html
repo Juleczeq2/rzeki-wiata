@@ -1,28 +1,664 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jenisej | Rzeki świata</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jenisej – wielka rzeka Syberii</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;background:#07131f;color:#eef7ff;font-family:Arial,sans-serif}header{padding:22px 8%;background:#0b1c2b;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.logo{color:#5eead4;font-weight:bold;font-size:22px}a{color:#5eead4;text-decoration:none}nav a{margin-left:18px;color:#d4e5f2}.hero{padding:50px 8%;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}img{width:100%;height:350px;object-fit:cover;border-radius:20px}.tag{color:#5eead4;letter-spacing:3px;font-size:12px}h1{font-size:clamp(40px,6vw,65px);margin:15px 0}p{line-height:1.8;color:#b8cbd9}.info{margin:0 8% 50px;padding:25px;background:#102435;border:1px solid #223e50;border-radius:18px}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin-top:20px}.stat{background:#0b1c2b;border-radius:12px;padding:18px}.stat strong{display:block;color:#5eead4;font-size:23px;margin-bottom:8px}footer{text-align:center;padding:25px;background:#0b1c2b}@media(max-width:700px){.hero{grid-template-columns:1fr}img{height:240px}}
+:root {
+    --bg: #07111f;
+    --panel: #101f30;
+    --text: #edf5ff;
+    --muted: #a8bbce;
+    --accent: #36e0c0;
+    --border: rgba(255,255,255,.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+header {
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border);
+    background: #091625;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--accent);
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+.hero {
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    padding: 65px 7%;
+    background:
+        linear-gradient(90deg, rgba(5,14,25,.96),
+        rgba(5,14,25,.73) 48%, rgba(5,14,25,.16)),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Divnogorsk%2C%20Yenisei%20River%2C%20Russia.jpg?width=1600")
+        center 50% / cover no-repeat;
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 13px;
+    border: 1px solid rgba(54,224,192,.5);
+    border-radius: 30px;
+    color: var(--accent);
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(40px, 6vw, 68px);
+    line-height: 1.08;
+    margin-bottom: 22px;
+}
+
+h1 span {
+    color: var(--accent);
+}
+
+.hero p {
+    color: #d4e0ed;
+    max-width: 620px;
+    font-size: 17px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 12px 22px;
+    border-radius: 9px;
+    background: var(--accent);
+    color: #07111f;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .2s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    background: #73f5dc;
+}
+
+.container {
+    width: min(1120px, 86%);
+    margin: auto;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: -35px;
+    position: relative;
+}
+
+.stat {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 22px 18px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 25px;
+    color: var(--accent);
+    margin-bottom: 4px;
+}
+
+.stat span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+section {
+    padding: 78px 0;
+}
+
+.section-label {
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.2;
+    margin: 10px 0 20px;
+}
+
+.intro {
+    color: var(--muted);
+    max-width: 780px;
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    background: #17283a;
+}
+
+.card-content {
+    padding: 23px;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--muted);
+}
+
+.caption {
+    font-size: 12px;
+    color: #93a9bd;
+    padding: 0 23px 18px;
+}
+
+.info-box {
+    background: linear-gradient(135deg, #102c38, #102033);
+    border: 1px solid rgba(54,224,192,.22);
+    border-radius: 16px;
+    padding: 28px;
+    margin-top: 25px;
+}
+
+.info-box h3 {
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    color: #d0deeb;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.fact {
+    padding: 23px;
+    border-radius: 14px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+}
+
+.fact .number {
+    font-size: 27px;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.fact p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 7%;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+@media (max-width: 760px) {
+    header {
+        padding: 18px 6%;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 55px 7%;
+        background-position: center;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid, .facts {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: 88%;
+    }
+
+    section {
+        padding: 55px 0;
+    }
+
+    .card img {
+        height: 230px;
+    }
+}
 </style>
 </head>
+
 <body>
-<header><div class="logo">🌊 RZEKI ŚWIATA</div><nav><a href="index.html">← Strona główna</a></nav></header>
+
+<header>
+    <div class="logo">RZEKI ŚWIATA</div>
+    <nav>
+        <a href="index.html">Strona główna</a>
+        <a href="#informacje">Informacje</a>
+        <a href="#zdjecia">Zdjęcia</a>
+        <a href="#przyroda">Przyroda</a>
+    </nav>
+</header>
+
 <main>
-<div class="hero">
-<div><div class="tag">05 / AZJA</div><h1>Jenisej</h1>
-<p>Jenisej to wielka rzeka Syberii, płynąca przez Mongolię i Rosję w kierunku Oceanu Arktycznego. Wraz z dopływami tworzy jeden z najdłuższych systemów rzecznych świata.</p>
-<p>Jej dorzecze obejmuje rozległe obszary tajgi, gór i północnych terenów o surowym klimacie.</p></div>
-<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=85" alt="Surowy krajobraz górski Syberii">
-</div>
-<section class="info"><div class="tag">NAJWAŻNIEJSZE INFORMACJE</div><h2>Rzeka dalekiej Syberii</h2>
-<div class="stats"><div class="stat"><strong>~5539 km</strong>Długość systemu rzecznego</div><div class="stat"><strong>Azja</strong>Kontynent</div><div class="stat"><strong>Ocean Arktyczny</strong>Ujście</div></div>
-<h3>Ciekawostka</h3><p>Jenisej przepływa przez ogromne, słabo zaludnione obszary Syberii. Jego wody są ważne dla lokalnych ekosystemów, transportu i energetyki.</p>
-<a href="index.html">← Wróć na stronę główną</a>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="tag">SYBERIA · ROSJA</div>
+        <h1>Jenisej<br><span>dzika Syberia</span></h1>
+        <p>
+            Jenisej to jedna z największych rzek Azji.
+            Przepływa przez rozległe obszary Syberii, mija góry,
+            tajgę i wielkie zbiorniki wodne, a następnie uchodzi
+            do Oceanu Arktycznego.
+        </p>
+        <a class="button" href="#informacje">Poznaj Jenisej ↓</a>
+    </div>
 </section>
+
+<div class="container">
+    <div class="stats">
+        <div class="stat">
+            <strong>ok. 5500 km</strong>
+            <span>Długość całego systemu rzecznego</span>
+        </div>
+        <div class="stat">
+            <strong>Syberia</strong>
+            <span>Główny obszar biegu rzeki</span>
+        </div>
+        <div class="stat">
+            <strong>Arktyka</strong>
+            <span>Kierunek ujścia</span>
+        </div>
+        <div class="stat">
+            <strong>Kara</strong>
+            <span>Morze, do którego uchodzi</span>
+        </div>
+    </div>
+</div>
+
+<section id="informacje">
+    <div class="container">
+        <div class="section-label">01 / Podstawowe informacje</div>
+        <h2>Wielka rzeka Syberii</h2>
+        <p class="intro">
+            Jenisej płynie przez Rosję, a jego system rzeczny
+            łączy się z rzekami Mongolii. Długość podawana dla
+            całego systemu Jeniseju zależy od tego, które źródło
+            uznaje się za początek. Rzeka kieruje się na północ
+            i uchodzi do Zatoki Jenisejskiej na Morzu Karskim,
+            należącym do Oceanu Arktycznego.
+        </p>
+
+        <div class="grid">
+            <article class="card">
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Divnogorsk%2C%20Yenisei%20River%2C%20Russia.jpg?width=1100"
+                    alt="Szeroki Jenisej w pobliżu Divnogorska na Syberii"
+                    loading="lazy">
+                <div class="card-content">
+                    <h3>Jenisej wśród syberyjskich krajobrazów</h3>
+                    <p>
+                        Rzeka przepływa przez rozległe tereny Syberii.
+                        W niektórych miejscach jej dolina otoczona
+                        jest górami i stromymi zboczami, a w innych
+                        brzegi są łagodniejsze.
+                    </p>
+                </div>
+                <div class="caption">
+                    Jenisej w okolicach Divnogorska w Rosji.
+                </div>
+            </article>
+
+            <article class="card">
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Yenisei%20River%20in%20Krasnoyarsk%201.jpg?width=1100"
+                    alt="Prawdziwa rzeka Jenisej w Krasnojarsku"
+                    loading="lazy">
+                <div class="card-content">
+                    <h3>Jenisej w Krasnojarsku</h3>
+                    <p>
+                        Krasnojarsk jest jednym z najważniejszych
+                        miast położonych nad rzeką. Jenisej ma tu
+                        duże znaczenie dla transportu, energetyki
+                        oraz codziennego życia mieszkańców.
+                    </p>
+                </div>
+                <div class="caption">
+                    Rzeka Jenisej przepływająca przez Krasnojarsk.
+                </div>
+            </article>
+        </div>
+
+        <div class="info-box">
+            <h3>Co wyróżnia Jenisej?</h3>
+            <p>
+                To jedna z największych rzek uchodzących do Oceanu
+                Arktycznego. Odprowadza ogromne ilości wody z
+                rozległych obszarów Syberii, a jej dorzecze obejmuje
+                wiele różnych typów krajobrazu.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="zdjecia">
+    <div class="container">
+        <div class="section-label">02 / Krajobraz</div>
+        <h2>Od gór po północne pustkowia</h2>
+        <p class="intro">
+            Wzdłuż Jeniseju można zobaczyć zarówno górskie doliny,
+            jak i rozległe obszary tajgi. Dalej na północ klimat
+            staje się coraz chłodniejszy, a zimą znaczne odcinki
+            rzeki pokrywa lód.
+        </p>
+
+        <div class="grid">
+            <article class="card">
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Yenisei%20River.jpg?width=1100"
+                    alt="Jenisej na północy, w chłodnym syberyjskim krajobrazie"
+                    loading="lazy">
+                <div class="card-content">
+                    <h3>Na dalekiej północy</h3>
+                    <p>
+                        Północne odcinki rzeki leżą w regionie
+                        o surowym klimacie. W ciągu roku warunki
+                        bardzo się zmieniają, a zamarzanie rzek
+                        wpływa na transport i życie ludzi.
+                    </p>
+                </div>
+                <div class="caption">
+                    Jenisej w północnej części Syberii.
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-content">
+                    <h3>Tajga syberyjska</h3>
+                    <p>
+                        W dorzeczu Jeniseju występują rozległe lasy
+                        iglaste, czyli tajga. Rosną w nich między
+                        innymi modrzewie, świerki i sosny.
+                    </p>
+                    <br>
+                    <h3>Rzeka i pory roku</h3>
+                    <p>
+                        Wiosenne roztopy mogą powodować wzrost poziomu
+                        wody. Zimą niskie temperatury sprawiają,
+                        że duża część rzeki zamarza.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="geografia">
+    <div class="container">
+        <div class="section-label">03 / Geografia</div>
+        <h2>Dokąd płynie Jenisej?</h2>
+        <p class="intro">
+            System rzeczny Jeniseju rozpoczyna się w południowej
+            części Syberii i w sąsiednich obszarach Mongolii.
+            Rzeka płynie na północ przez środkową Syberię,
+            aż do Morza Karskiego.
+        </p>
+
+        <div class="grid">
+            <article class="card">
+                <div class="card-content">
+                    <h3>Południowa Syberia</h3>
+                    <p>
+                        W górnym biegu rzeka i jej dopływy przepływają
+                        przez tereny górskie. Na jej trasie znajdują
+                        się także duże zbiorniki wodne i zapory.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-content">
+                    <h3>Ujście do Morza Karskiego</h3>
+                    <p>
+                        Na północy Jenisej rozszerza się, tworząc
+                        Zatokę Jenisejską. Wody rzeki trafiają
+                        ostatecznie do Oceanu Arktycznego.
+                    </p>
+                </div>
+            </article>
+        </div>
+
+        <div class="info-box">
+            <h3>Ważne dopływy</h3>
+            <p>
+                Do najważniejszych dopływów Jeniseju należą Angara,
+                Tunguzka Dolna i Tunguzka Podkamienna. Dopływy
+                dostarczają wodę z ogromnych obszarów Syberii
+                i wpływają na wielkość przepływu głównej rzeki.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="przyroda">
+    <div class="container">
+        <div class="section-label">04 / Przyroda</div>
+        <h2>Życie w surowym klimacie</h2>
+        <p class="intro">
+            Dorzecze Jeniseju obejmuje różnorodne środowiska,
+            od lasów tajgi po chłodne obszary północne. Żyją
+            tu zwierzęta przystosowane do długich i mroźnych zim.
+        </p>
+
+        <div class="facts">
+            <div class="fact">
+                <div class="number">Tajga</div>
+                <h3>Rozległe lasy</h3>
+                <p>
+                    Lasy iglaste zajmują duże obszary dorzecza
+                    i stanowią siedlisko wielu gatunków zwierząt.
+                </p>
+            </div>
+
+            <div class="fact">
+                <div class="number">Ryby</div>
+                <h3>Życie w wodzie</h3>
+                <p>
+                    W rzece i jej dopływach żyją liczne gatunki ryb,
+                    ważne dla ekosystemu oraz lokalnego rybołówstwa.
+                </p>
+            </div>
+
+            <div class="fact">
+                <div class="number">Arktyka</div>
+                <h3>Chłodna północ</h3>
+                <p>
+                    W pobliżu ujścia klimat jest surowy,
+                    a sezon lodowy ma duży wpływ na przyrodę.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="znaczenie">
+    <div class="container">
+        <div class="section-label">05 / Znaczenie dla ludzi</div>
+        <h2>Energia i transport</h2>
+        <p class="intro">
+            Jenisej jest ważny dla gospodarki Syberii.
+            Wykorzystuje się go do transportu wodnego,
+            rybołówstwa i produkcji energii elektrycznej.
+        </p>
+
+        <div class="grid">
+            <article class="card">
+                <div class="card-content">
+                    <h3>Energia wodna</h3>
+                    <p>
+                        Na rzece i jej dopływach działają duże
+                        elektrownie wodne. Wykorzystują przepływ
+                        wody do produkcji energii elektrycznej.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-content">
+                    <h3>Transport rzeczny</h3>
+                    <p>
+                        Żegluga na wybranych odcinkach umożliwia
+                        przewożenie ludzi i towarów. Rzeka jest
+                        szczególnie istotna na obszarach, gdzie
+                        sieć drogowa jest słabo rozwinięta.
+                    </p>
+                </div>
+            </article>
+        </div>
+
+        <div class="info-box">
+            <h3>Wyzwania środowiskowe</h3>
+            <p>
+                Zmiany klimatu, działalność przemysłowa i budowa
+                zapór mogą wpływać na ekosystemy rzeki. Ochrona
+                jakości wody i naturalnych siedlisk ma znaczenie
+                dla ludzi oraz zwierząt żyjących w jej dorzeczu.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="ciekawostki">
+    <div class="container">
+        <div class="section-label">06 / Ciekawostki</div>
+        <h2>Co warto zapamiętać?</h2>
+
+        <div class="facts">
+            <div class="fact">
+                <div class="number">01</div>
+                <h3>Rzeka Syberii</h3>
+                <p>
+                    Jenisej należy do największych systemów
+                    rzecznych Azji i jest jedną z głównych
+                    rzek Syberii.
+                </p>
+            </div>
+
+            <div class="fact">
+                <div class="number">02</div>
+                <h3>Wielkie elektrownie</h3>
+                <p>
+                    Na Jeniseju i jego dopływach znajdują się
+                    duże elektrownie wodne, między innymi
+                    w rejonie Krasnojarska i Sajano-Szuszeńska.
+                </p>
+            </div>
+
+            <div class="fact">
+                <div class="number">03</div>
+                <h3>Ocean Arktyczny</h3>
+                <p>
+                    Wody Jeniseju pokonują tysiące kilometrów,
+                    zanim dotrą do północnych mórz Oceanu Arktycznego.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 </main>
-<footer>Projekt edukacyjny · <a href="index.html">Powrót do strony głównej</a></footer>
+
+<footer>
+    <p>Projekt szkolny: <strong>5 najdłuższych rzek świata</strong></p>
+    <p>Zdjęcia: Wikimedia Commons.</p>
+    <p><a href="index.html">← Powrót do strony głównej</a></p>
+</footer>
+
 </body>
 </html>

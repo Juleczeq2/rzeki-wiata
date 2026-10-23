@@ -1,28 +1,566 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Nil – informacje o jednej z najdłuższych rzek świata, jej geografii, historii i przyrodzie.">
 <title>Nil | Rzeki świata</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;background:#07131f;color:#eef7ff;font-family:Arial,sans-serif}header{padding:22px 8%;background:#0b1c2b;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.logo{color:#5eead4;font-weight:bold;font-size:22px}a{color:#5eead4;text-decoration:none}nav a{margin-left:18px;color:#d4e5f2}.hero{padding:50px 8%;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}img{width:100%;height:350px;object-fit:cover;border-radius:20px}.tag{color:#5eead4;letter-spacing:3px;font-size:12px}h1{font-size:clamp(40px,6vw,65px);margin:15px 0}p{line-height:1.8;color:#b8cbd9}.info{margin:0 8% 50px;padding:25px;background:#102435;border:1px solid #223e50;border-radius:18px}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin-top:20px}.stat{background:#0b1c2b;border-radius:12px;padding:18px}.stat strong{display:block;color:#5eead4;font-size:23px;margin-bottom:8px}footer{text-align:center;padding:25px;background:#0b1c2b}@media(max-width:700px){.hero{grid-template-columns:1fr}img{height:240px}}
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background: #07131f;
+    color: #eef7ff;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    padding: 22px 8%;
+    background: #0b1c2b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #20394a;
+}
+
+.logo {
+    color: #5eead4;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+a {
+    color: #5eead4;
+    text-decoration: none;
+}
+
+a:hover { color: #a5fff2; }
+
+nav a {
+    margin-left: 18px;
+    color: #d4e5f2;
+}
+
+.hero {
+    padding: 55px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.hero img { height: 390px; }
+
+.tag {
+    color: #5eead4;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(42px, 6vw, 70px);
+    margin: 15px 0;
+}
+
+h2 {
+    font-size: 30px;
+    margin-top: 12px;
+}
+
+h3 { color: #5eead4; }
+
+p {
+    line-height: 1.85;
+    color: #b8cbd9;
+}
+
+section.content {
+    margin: 0 8% 28px;
+    padding: 30px;
+    background: #102435;
+    border: 1px solid #223e50;
+    border-radius: 20px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.stat {
+    background: #0b1c2b;
+    border-radius: 13px;
+    padding: 20px;
+    color: #b8cbd9;
+    line-height: 1.6;
+}
+
+.stat strong {
+    display: block;
+    color: #5eead4;
+    font-size: 22px;
+    margin-bottom: 9px;
+}
+
+.two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+.two img { height: 260px; }
+
+ul {
+    color: #b8cbd9;
+    line-height: 2;
+    padding-left: 22px;
+}
+
+.highlight {
+    border-left: 3px solid #5eead4;
+    padding: 12px 18px;
+    background: #0b1c2b;
+    border-radius: 0 12px 12px 0;
+    color: #d4e5f2;
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 15px;
+}
+
+.fact {
+    padding: 18px;
+    border-radius: 13px;
+    background: #0b1c2b;
+}
+
+.fact h3 { margin-top: 0; }
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 18px;
+    border-radius: 10px;
+    background: #5eead4;
+    color: #07131f;
+    font-weight: bold;
+}
+
+.btn.secondary {
+    background: #193448;
+    color: #eef7ff;
+}
+
+footer {
+    text-align: center;
+    padding: 28px;
+    background: #0b1c2b;
+    color: #b8cbd9;
+}
+
+.caption {
+    font-size: 13px;
+    color: #8faebe;
+    margin-top: 8px;
+}
+
+@media(max-width: 700px) {
+    .hero, .two { grid-template-columns: 1fr; }
+    .hero { padding-top: 35px; }
+    .hero img { height: 260px; }
+    section.content {
+        margin-left: 4%;
+        margin-right: 4%;
+        padding: 22px;
+    }
+    nav a {
+        margin-left: 0;
+        margin-right: 12px;
+    }
+}
 </style>
 </head>
+
 <body>
-<header><div class="logo">🌊 RZEKI ŚWIATA</div><nav><a href="index.html">← Strona główna</a></nav></header>
+
+<header>
+    <div class="logo">🌊 RZEKI ŚWIATA</div>
+    <nav><a href="index.html">← Strona główna</a></nav>
+</header>
+
 <main>
+
 <div class="hero">
-<div><div class="tag">01 / AFRYKA</div><h1>Nil</h1>
-<p>Nil jest tradycyjnie uznawany za najdłuższą rzekę świata. Odgrywał ogromną rolę w rozwoju starożytnego Egiptu, ponieważ zapewniał wodę i żyzne gleby na terenach otoczonych pustynią.</p>
-<p>Uchodzi deltą do Morza Śródziemnego. Jego wody przepływają przez północno-wschodnią Afrykę.</p></div>
-<img src="https://images.unsplash.com/photo-1539768942893-daf53e448371?auto=format&fit=crop&w=1200&q=85" alt="Egipski krajobraz nad Nilem">
+    <div>
+        <div class="tag">01 / AFRYKA / WIELKA RZEKA CYWILIZACJI</div>
+        <h1>Nil</h1>
+
+        <p>
+            Nil to jedna z najważniejszych rzek na Ziemi, tradycyjnie
+            uznawana za najdłuższą na świecie. Od tysięcy lat dostarcza
+            wodę ludziom żyjącym w Afryce północno-wschodniej.
+            Bez niej rozwój starożytnego Egiptu na pustynnych terenach
+            byłby znacznie trudniejszy.
+        </p>
+
+        <p>
+            Rzeka płynie na północ i uchodzi rozległą deltą do Morza
+            Śródziemnego. Jej dorzecze obejmuje obszary od wilgotnych
+            regionów równikowych po gorące pustynie.
+        </p>
+
+        <div class="buttons">
+            <a class="btn" href="#geografia">Poznaj Nil ↓</a>
+            <a class="btn secondary" href="#ciekawostki">Ciekawostki</a>
+        </div>
+    </div>
+
+    <div>
+        <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%2C%20Cairo%20%2820130330-DSC04095%29.jpg?width=1200"
+        alt="Prawdziwy Nil widziany z lotu ptaka w Kairze">
+        <p class="caption">Nil przepływający przez Kair, stolicę Egiptu.</p>
+    </div>
 </div>
-<section class="info"><div class="tag">NAJWAŻNIEJSZE INFORMACJE</div><h2>Rzeka, która stworzyła historię</h2>
-<div class="stats"><div class="stat"><strong>~6650 km</strong>Długość</div><div class="stat"><strong>Afryka</strong>Kontynent</div><div class="stat"><strong>Morze Śródziemne</strong>Ujście</div></div>
-<h3>Ciekawostka</h3><p>Regularne wylewy Nilu pozostawiały żyzny muł, który przez tysiące lat pomagał rolnikom uprawiać ziemię w starożytnym Egipcie.</p>
-<a href="amazonka.html">Następna rzeka: Amazonka →</a>
+
+<section class="content">
+    <div class="tag">NAJWAŻNIEJSZE INFORMACJE</div>
+    <h2>Nil w liczbach</h2>
+
+    <p>
+        Nil ma ogromne znaczenie geograficzne, gospodarcze i historyczne.
+        Jego długość jest szacowana, ponieważ wynik zależy między innymi
+        od tego, które źródła i dopływy uzna się za początek rzeki.
+    </p>
+
+    <div class="stats">
+        <div class="stat"><strong>około 6650 km</strong>Szacowana długość</div>
+        <div class="stat"><strong>Afryka</strong>Kontynent</div>
+        <div class="stat"><strong>Morze Śródziemne</strong>Ujście</div>
+        <div class="stat"><strong>Nil Biały i Błękitny</strong>Główne odnogi źródłowe</div>
+        <div class="stat"><strong>Na północ</strong>Główny kierunek przepływu</div>
+        <div class="stat"><strong>Delta Nilu</strong>Rozległy obszar u ujścia</div>
+    </div>
 </section>
+
+<section class="content" id="geografia">
+    <div class="tag">01 / GEOGRAFIA</div>
+    <h2>Skąd wypływa Nil i dokąd płynie?</h2>
+
+    <div class="two">
+        <div>
+            <p>
+                Nil powstaje z systemu rzek i jezior Afryki. Nil Biały
+                jest związany z obszarem Wielkich Jezior Afrykańskich,
+                a Nil Błękitny wypływa z jeziora Tana w Etiopii.
+            </p>
+
+            <p>
+                Obie rzeki łączą się w Chartumie, stolicy Sudanu.
+                Dalej Nil płynie przez Sudan i Egipt, aż dociera
+                do Morza Śródziemnego. Na północy Egiptu rozdziela
+                się na ramiona, tworząc deltę.
+            </p>
+        </div>
+
+        <div>
+            <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Nile%20River%20at%20the%20border%20of%20Egypt%20and%20Sudan.jpg?width=1000"
+            alt="Nil na granicy Egiptu i Sudanu">
+            <p class="caption">Nil na obszarze granicy Egiptu i Sudanu.</p>
+        </div>
+    </div>
+
+    <div class="highlight">
+        <strong>Warto wiedzieć:</strong> dokładna długość Nilu jest
+        przedmiotem dyskusji. W zależności od metody pomiaru różne
+        źródła mogą podawać nieco inne wyniki.
+    </div>
+</section>
+
+<section class="content">
+    <div class="tag">02 / DOPŁYWY</div>
+    <h2>Nil Biały i Nil Błękitny</h2>
+
+    <div class="two">
+        <div>
+            <h3>Nil Biały</h3>
+            <p>
+                Nil Biały jest związany z wodami równikowej Afryki,
+                między innymi z obszarem Jeziora Wiktorii. Przepływa
+                przez rozległe tereny podmokłe, w tym bagna Sudd
+                w Sudanie Południowym. Obszary te tworzą ważne
+                środowisko dla wielu zwierząt.
+            </p>
+        </div>
+
+        <div>
+            <h3>Nil Błękitny</h3>
+            <p>
+                Nil Błękitny wypływa z jeziora Tana w Etiopii.
+                W porze deszczowej dostarcza znaczną część wody
+                i osadów transportowanych przez Nil. Na jego biegu
+                znajdują się wodospady i głębokie doliny.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="tag">03 / HISTORIA</div>
+    <h2>Nil a starożytny Egipt</h2>
+
+    <div class="two">
+        <div>
+            <p>
+                Starożytny Egipt rozwijał się w dużej mierze wzdłuż
+                doliny Nilu. Otaczające ją pustynie utrudniały życie,
+                ale sama rzeka zapewniała wodę i warunki do uprawy
+                roślin. Dzięki temu powstawały osady, miasta
+                i ośrodki władzy.
+            </p>
+
+            <p>
+                Wylewy rzeki pozostawiały na polach żyzny muł.
+                Rolnicy uprawiali między innymi zboża, a nadwyżki
+                żywności pomagały utrzymywać rzemieślników,
+                urzędników i budowniczych.
+            </p>
+        </div>
+
+        <div>
+            <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Nile%20River%20and%20delta%20from%20orbit.jpg?width=1000"
+            alt="Nil i jego delta widziane z kosmosu">
+            <p class="caption">Nil i jego delta widziane z kosmosu.</p>
+        </div>
+    </div>
+
+    <p>
+        Rzeka wpływała również na kalendarz i wierzenia Egipcjan.
+        Przewidywanie sezonowych zmian poziomu wody miało znaczenie
+        dla planowania prac polowych. Nil był więc nie tylko źródłem
+        wody, lecz także podstawą organizacji życia całego państwa.
+    </p>
+</section>
+
+<section class="content">
+    <div class="tag">04 / GOSPODARKA</div>
+    <h2>Dlaczego Nil jest ważny współcześnie?</h2>
+
+    <div class="facts">
+        <div class="fact">
+            <h3>🌾 Rolnictwo</h3>
+            <p>
+                Woda z Nilu jest wykorzystywana do nawadniania pól.
+                W suchym klimacie Egiptu i Sudanu umożliwia uprawę
+                wielu roślin.
+            </p>
+        </div>
+
+        <div class="fact">
+            <h3>💧 Woda dla mieszkańców</h3>
+            <p>
+                Nil jest ważnym źródłem wody dla miast i wsi.
+                Korzystają z niego miliony ludzi, dlatego jakość
+                i ilość dostępnej wody mają ogromne znaczenie.
+            </p>
+        </div>
+
+        <div class="fact">
+            <h3>⚡ Energia</h3>
+            <p>
+                Zapory i elektrownie wodne, w tym Wysoka Tama
+                Asuańska w Egipcie, pomagają produkować energię
+                elektryczną i regulować przepływ wody.
+            </p>
+        </div>
+
+        <div class="fact">
+            <h3>🚢 Transport i turystyka</h3>
+            <p>
+                Rzeka od dawna służy do przewozu ludzi i towarów.
+                Rejsy po Nilu pozwalają także poznawać egipskie
+                zabytki i krajobrazy.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="tag">05 / PRZYRODA</div>
+    <h2>Życie w dolinie Nilu</h2>
+
+    <p>
+        Chociaż duża część Nilu przepływa przez suche obszary,
+        jego dolina stanowi ważne środowisko życia dla wielu
+        organizmów. Wzdłuż brzegów występują rośliny wodne,
+        trzcinowiska i tereny uprawne.
+    </p>
+
+    <div class="two">
+        <div>
+            <h3>Zwierzęta</h3>
+            <p>
+                W systemie rzecznym żyją liczne gatunki ryb.
+                Na wybranych odcinkach występują krokodyle nilowe,
+                a na terenach podmokłych można spotkać hipopotamy.
+                Brzegi są również ważnym miejscem odpoczynku
+                i żerowania ptaków.
+            </p>
+        </div>
+
+        <div>
+            <h3>Roślinność</h3>
+            <p>
+                W pobliżu wody rosną trzciny i inne rośliny wodne.
+                Na nawadnianych terenach uprawia się między innymi
+                zboża, warzywa i bawełnę. Życie roślin zależy od
+                dostępu do wody, temperatury i rodzaju gleby.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="tag">06 / PROBLEMY I WYZWANIA</div>
+    <h2>Co zagraża Nilowi?</h2>
+
+    <p>
+        Z Nilu korzysta wiele państw, dlatego zarządzanie jego wodami
+        jest ważnym zagadnieniem międzynarodowym. Wzrost liczby
+        ludności, rozwój rolnictwa i zmiany klimatu zwiększają
+        zapotrzebowanie na wodę.
+    </p>
+
+    <ul>
+        <li><strong>Zanieczyszczenia:</strong> ścieki i odpady rolnicze mogą pogarszać jakość wody.</li>
+        <li><strong>Duże zapotrzebowanie:</strong> miasta i gospodarstwa rolne potrzebują coraz więcej wody.</li>
+        <li><strong>Zmiany klimatu:</strong> susze i zmiany opadów mogą wpływać na dostępność wody.</li>
+        <li><strong>Zapory:</strong> budowle wodne zmieniają przepływ rzeki i transport osadów.</li>
+        <li><strong>Współpraca państw:</strong> kraje dorzecza muszą uzgadniać zasady korzystania ze wspólnych zasobów.</li>
+    </ul>
+
+    <div class="highlight">
+        Ochrona Nilu wymaga oczyszczania ścieków, oszczędnego
+        gospodarowania wodą oraz współpracy państw leżących
+        w jego dorzeczu.
+    </div>
+</section>
+
+<section class="content" id="ciekawostki">
+    <div class="tag">07 / CIEKAWOSTKI</div>
+    <h2>Fakty, które warto zapamiętać</h2>
+
+    <div class="facts">
+        <div class="fact">
+            <h3>01. Płynie na północ</h3>
+            <p>
+                Nil płynie głównie na północ, ku Morzu Śródziemnemu.
+                Rzeki nie muszą płynąć tylko z północy na południe.
+            </p>
+        </div>
+
+        <div class="fact">
+            <h3>02. Zielony pas pustyni</h3>
+            <p>
+                Dolina Nilu wyróżnia się zielenią na tle otaczających
+                ją suchych terenów Sahary.
+            </p>
+        </div>
+
+        <div class="fact">
+            <h3>03. Dwa wielkie dopływy</h3>
+            <p>
+                Nil Biały i Nil Błękitny łączą się w Chartumie,
+                tworząc główny bieg Nilu.
+            </p>
+        </div>
+
+        <div class="fact">
+            <h3>04. Rzeka faraonów</h3>
+            <p>
+                Nil miał ogromne znaczenie dla rolnictwa, handlu,
+                transportu i rozwoju starożytnej cywilizacji egipskiej.
+            </p>
+        </div>
+
+        <div class="fact">
+            <h3>05. Potężna delta</h3>
+            <p>
+                Przy ujściu do Morza Śródziemnego Nil rozdziela się
+                na ramiona i tworzy żyzny, gęsto zaludniony region.
+            </p>
+        </div>
+
+        <div class="fact">
+            <h3>06. Spór o długość</h3>
+            <p>
+                Nil i Amazonka są często wymieniane w rywalizacji
+                o tytuł najdłuższej rzeki świata. Wynik zależy
+                od metody pomiaru.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="tag">PODSUMOWANIE</div>
+    <h2>Dlaczego Nil jest tak wyjątkowy?</h2>
+
+    <p>
+        Nil jest jedną z najważniejszych rzek świata. Ukształtował
+        historię starożytnego Egiptu, zapewnia wodę mieszkańcom
+        Afryki północno-wschodniej i ma duże znaczenie dla rolnictwa
+        oraz energetyki. Jednocześnie stoi przed wyzwaniami
+        związanymi z zanieczyszczeniami, zmianami klimatu
+        i rosnącym zapotrzebowaniem na wodę.
+    </p>
+
+    <p>
+        Historia Nilu pokazuje, jak mocno rozwój człowieka zależy
+        od rzek i jak ważna jest ochrona zasobów wodnych.
+    </p>
+
+    <div class="buttons">
+        <a class="btn secondary" href="index.html">← Strona główna</a>
+        <a class="btn" href="amazonka.html">Następna rzeka: Amazonka →</a>
+    </div>
+</section>
+
 </main>
-<footer>Projekt edukacyjny · <a href="index.html">Powrót do strony głównej</a></footer>
+
+<footer>
+    Projekt edukacyjny „Rzeki świata” ·
+    <a href="index.html">Powrót do strony głównej</a>
+</footer>
+
 </body>
 </html>
