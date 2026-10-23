@@ -1,98 +1,422 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rzeki świata | Odkryj największe rzeki</title>
+<title>Najdłuższe rzeki świata</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#07131f;color:#eef7ff;font-family:Arial,sans-serif}
-header{padding:22px 8%;display:flex;justify-content:space-between;align-items:center;background:#0b1c2b;border-bottom:1px solid #20394b}
-.logo{font-size:22px;font-weight:bold;color:#5eead4}
-nav a{color:#d4e5f2;text-decoration:none;margin-left:20px;font-size:14px}
-nav a:hover{color:#5eead4}
-.hero{padding:70px 8% 50px;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
-.tag{color:#5eead4;text-transform:uppercase;letter-spacing:3px;font-size:12px;font-weight:bold}
-h1{font-size:clamp(38px,5vw,64px);line-height:1.05;margin:15px 0}
-p{line-height:1.8;color:#b8cbd9}
-.hero img{width:100%;height:360px;object-fit:cover;border-radius:22px;border:1px solid #294456}
-.button{display:inline-block;margin-top:15px;padding:13px 20px;background:#5eead4;color:#06202a;text-decoration:none;border-radius:10px;font-weight:bold}
-section{padding:30px 8% 70px}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px}
-h2{font-size:30px;margin-bottom:8px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:28px}
-.card{background:#102435;border:1px solid #223e50;border-radius:18px;overflow:hidden;transition:.2s}
-.card:hover{transform:translateY(-5px);border-color:#5eead4}
-.card img{width:100%;height:180px;object-fit:cover;display:block}
-.card-content{padding:20px}
-.card h3{margin:0;font-size:22px}
-.card p{font-size:14px;min-height:70px}
-.card a{color:#5eead4;text-decoration:none;font-weight:bold}
-.number{color:#5eead4;font-size:12px;letter-spacing:2px}
-footer{text-align:center;padding:25px;background:#0b1c2b;color:#8ba5b7;font-size:13px}
-@media(max-width:700px){.hero{grid-template-columns:1fr;padding-top:40px}header{align-items:flex-start;gap:15px;flex-direction:column}nav a{margin:0 12px 0 0}.hero img{height:240px}.section-head{display:block}}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07111f;
+    color: #edf5ff;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(7, 17, 31, 0.94);
+    border-bottom: 1px solid #1c3448;
+    backdrop-filter: blur(12px);
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    color: #55e6d0;
+}
+
+nav a:last-child {
+    color: #55e6d0;
+    font-weight: bold;
+}
+
+.hero {
+    min-height: 500px;
+    padding: 90px 24px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(90deg, rgba(4, 13, 25, 0.96), rgba(4, 13, 25, 0.48)),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Nile%20River%20and%20delta%20from%20orbit.jpg?width=1800")
+        center 45% / cover;
+}
+
+.hero-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 1px solid #2c817f;
+    border-radius: 30px;
+    color: #65ead9;
+    background: rgba(26, 110, 110, 0.18);
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h1 {
+    max-width: 800px;
+    margin: 22px 0;
+    font-size: clamp(38px, 6vw, 70px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+}
+
+h1 span {
+    color: #55e6d0;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #c2d0df;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.button {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 10px;
+    background: #55e6d0;
+    color: #061522;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.button:hover {
+    background: #8bfff0;
+    transform: translateY(-2px);
+}
+
+section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 65px 24px;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading small {
+    color: #55e6d0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin: 8px 0;
+}
+
+.section-heading p {
+    color: #aebed0;
+    max-width: 650px;
+}
+
+.river-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.river-card {
+    overflow: hidden;
+    border: 1px solid #20374c;
+    border-radius: 18px;
+    background: #0c1b2b;
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.river-card:hover {
+    transform: translateY(-5px);
+    border-color: #55e6d0;
+}
+
+.river-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 23px;
+}
+
+.number {
+    color: #55e6d0;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.card-content h3 {
+    font-size: 25px;
+    margin: 5px 0 8px;
+}
+
+.card-content p {
+    color: #b3c3d4;
+    margin-bottom: 18px;
+}
+
+.card-link {
+    display: inline-block;
+    color: #55e6d0;
+    font-weight: bold;
+}
+
+.card-link:hover {
+    color: #a0fff3;
+}
+
+.fact-box {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.fact {
+    background: #0c1b2b;
+    border: 1px solid #20374c;
+    padding: 25px;
+    border-radius: 16px;
+}
+
+.fact strong {
+    display: block;
+    color: #55e6d0;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.fact p {
+    color: #b3c3d4;
+}
+
+footer {
+    padding: 30px 20px;
+    text-align: center;
+    color: #93a6ba;
+    border-top: 1px solid #20374c;
+    background: #050c15;
+}
+
+footer span {
+    color: #55e6d0;
+}
+
+@media (max-width: 700px) {
+    nav {
+        padding: 15px 18px;
+    }
+
+    .hero {
+        min-height: 440px;
+        padding: 65px 20px;
+    }
+
+    .river-grid,
+    .fact-box {
+        grid-template-columns: 1fr;
+    }
+
+    .river-card img {
+        height: 210px;
+    }
+
+    section {
+        padding: 45px 18px;
+    }
+}
 </style>
 </head>
 
 <body>
+
 <header>
-  <div class="logo">🌊 RZEKI ŚWIATA</div>
-  <nav>
-    <a href="index.html">Strona główna</a>
-    <a href="#rzeki">Poznaj rzeki</a>
-  </nav>
+    <nav>
+        <a class="logo" href="index.html">🌊 Rzeki świata</a>
+        <a href="#rzeki">Poznaj rzeki ↓</a>
+    </nav>
 </header>
 
 <main>
-<div class="hero">
-  <div>
-    <div class="tag">Wielkie cuda natury</div>
-    <h1>5 najdłuższych rzek na świecie</h1>
-    <p>Przemierzają kontynenty, zasilają ogromne ekosystemy i od tysięcy lat pomagają rozwijać się cywilizacjom. Poznaj pięć niezwykłych rzek naszej planety.</p>
-    <a class="button" href="#rzeki">Odkryj rzeki ↓</a>
-  </div>
-  <img src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=1200&q=85" alt="Malownicza rzeka pośród przyrody">
-</div>
-
-<section id="rzeki">
-  <div class="section-head">
-    <div>
-      <div class="tag">Przewodnik geograficzny</div>
-      <h2>Wybierz rzekę</h2>
-      <p>Otwórz kartę, aby poznać jej długość, położenie i ciekawostki.</p>
+    <div class="hero">
+        <div class="hero-content">
+            <span class="eyebrow">Odkrywaj naszą planetę</span>
+            <h1>5 najdłuższych <span>rzek świata</span></h1>
+            <p>
+                Poznaj potężne rzeki, które przecinają kontynenty,
+                kształtują krajobrazy i zapewniają życie milionom ludzi.
+                Wybierz rzekę i odkryj jej niezwykłą historię.
+            </p>
+            <a class="button" href="#rzeki">Odkryj pięć rzek →</a>
+        </div>
     </div>
-  </div>
 
-  <div class="cards">
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1539768942893-daf53e448371?auto=format&fit=crop&w=900&q=85" alt="Krajobraz Egiptu nad Nilem">
-      <div class="card-content"><div class="number">01 / AFRYKA</div><h3>Nil</h3><p>Około 6650 km. Jedna z najważniejszych rzek w historii ludzkości.</p><a href="nil.html">Poznaj Nil →</a></div>
-    </article>
+    <section id="rzeki">
+        <div class="section-heading">
+            <small>Wybierz kierunek podróży</small>
+            <h2>Odkryj wielkie rzeki</h2>
+            <p>
+                Każda z nich jest inna. Przejdź do wybranej strony,
+                aby poznać jej długość, położenie, przyrodę i ciekawostki.
+            </p>
+        </div>
 
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=85" alt="Gęsty las tropikalny Amazonii">
-      <div class="card-content"><div class="number">02 / AMERYKA POŁUDNIOWA</div><h3>Amazonka</h3><p>Około 6400 km. Przepływa przez największy obszar lasów deszczowych.</p><a href="amazonka.html">Poznaj Amazonkę →</a></div>
-    </article>
+        <div class="river-grid">
 
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=900&q=85" alt="Krajobraz Chin">
-      <div class="card-content"><div class="number">03 / AZJA</div><h3>Jangcy</h3><p>Około 6300 km. Najdłuższa rzeka Chin i całej Azji.</p><a href="jangcy.html">Poznaj Jangcy →</a></div>
-    </article>
+            <article class="river-card">
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Nile%20River%20at%20the%20border%20of%20Egypt%20and%20Sudan.jpg?width=1000"
+                    alt="Rzeka Nil"
+                    loading="lazy">
+                <div class="card-content">
+                    <span class="number">01 / AFRYKA</span>
+                    <h3>Nil</h3>
+                    <p>
+                        Jedna z najdłuższych rzek świata, od tysięcy lat
+                        związana z historią i życiem mieszkańców Egiptu.
+                    </p>
+                    <a class="card-link" href="nil.html">Poznaj Nil →</a>
+                </div>
+            </article>
 
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85" alt="Rozległy krajobraz nad wodą">
-      <div class="card-content"><div class="number">04 / AMERYKA PÓŁNOCNA</div><h3>Missisipi–Missouri</h3><p>Około 6275 km w systemie rzecznym. Ogromny system wodny Ameryki Północnej.</p><a href="missisipi.html">Poznaj Missisipi →</a></div>
-    </article>
+            <article class="river-card">
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Amazon-river-NASA.jpg?width=1000"
+                    alt="Amazonka i dorzecze Amazonki"
+                    loading="lazy">
+                <div class="card-content">
+                    <span class="number">02 / AMERYKA POŁUDNIOWA</span>
+                    <h3>Amazonka</h3>
+                    <p>
+                        Ogromna rzeka przepływająca przez tropikalne lasy
+                        deszczowe, pełne niezwykłych gatunków roślin i zwierząt.
+                    </p>
+                    <a class="card-link" href="amazonka.html">Poznaj Amazonkę →</a>
+                </div>
+            </article>
 
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85" alt="Surowy krajobraz górski">
-      <div class="card-content"><div class="number">05 / AZJA</div><h3>Jenisej</h3><p>Około 5539 km wraz z dopływami. Przepływa przez Mongolię i Rosję.</p><a href="jenisej.html">Poznaj Jenisej →</a></div>
-    </article>
-  </div>
-</section>
+            <article class="river-card">
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Yangtze%20river%20three%20gorges.jpg?width=1000"
+                    alt="Rzeka Jangcy i przełom Trzech Przełomów"
+                    loading="lazy">
+                <div class="card-content">
+                    <span class="number">03 / AZJA</span>
+                    <h3>Jangcy</h3>
+                    <p>
+                        Najdłuższa rzeka Azji, ważna dla chińskiego
+                        transportu, rolnictwa i gospodarki.
+                    </p>
+                    <a class="card-link" href="jangcy.html">Poznaj Jangcy →</a>
+                </div>
+            </article>
+
+            <article class="river-card">
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Mississippi%20River%20at%20New%20Orleans.jpg?width=1000"
+                    alt="Rzeka Missisipi"
+                    loading="lazy">
+                <div class="card-content">
+                    <span class="number">04 / AMERYKA PÓŁNOCNA</span>
+                    <h3>Missisipi</h3>
+                    <p>
+                        Jedna z najważniejszych dróg wodnych Stanów
+                        Zjednoczonych, łącząca rozległe obszary kraju.
+                    </p>
+                    <a class="card-link" href="missisipi.html">Poznaj Missisipi →</a>
+                </div>
+            </article>
+
+            <article class="river-card">
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Yenisei%20River%20in%20Krasnoyarsk%201.jpg?width=1000"
+                    alt="Rzeka Jenisej w Rosji"
+                    loading="lazy">
+                <div class="card-content">
+                    <span class="number">05 / AZJA</span>
+                    <h3>Jenisej</h3>
+                    <p>
+                        Potężna syberyjska rzeka płynąca na północ
+                        przez rozległe obszary Rosji aż do Oceanu Arktycznego.
+                    </p>
+                    <a class="card-link" href="jenisej.html">Poznaj Jenisej →</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="section-heading">
+            <small>Dlaczego są ważne?</small>
+            <h2>Rzeki zmieniają świat</h2>
+            <p>
+                Rzeki to coś więcej niż woda płynąca przez mapę.
+                Wpływają na przyrodę, gospodarkę i życie ludzi.
+            </p>
+        </div>
+
+        <div class="fact-box">
+            <div class="fact">
+                <strong>🌱 Przyroda</strong>
+                <p>Zapewniają wodę roślinom i zwierzętom oraz tworzą siedliska dla wielu gatunków.</p>
+            </div>
+            <div class="fact">
+                <strong>🚢 Transport</strong>
+                <p>Umożliwiają przewóz ludzi i towarów na dużych odległościach.</p>
+            </div>
+            <div class="fact">
+                <strong>💧 Życie</strong>
+                <p>Dostarczają wodę wykorzystywaną przez mieszkańców, rolnictwo i przemysł.</p>
+            </div>
+        </div>
+    </section>
 </main>
 
-<footer>🌊 Rzeki świata · Projekt edukacyjny</footer>
+<footer>
+    <p>Projekt edukacyjny: <span>5 najdłuższych rzek świata</span></p>
+    <p>Odkrywaj, poznawaj i chroń zasoby wodne naszej planety.</p>
+</footer>
+
 </body>
 </html>
