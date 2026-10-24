@@ -9,10 +9,11 @@
 <style>
 :root {
     --bg: #07111f;
-    --panel: #101f30;
+    --panel: #101f32;
+    --panel2: #172b41;
     --text: #edf5ff;
-    --muted: #a8bbce;
-    --accent: #36e0c0;
+    --muted: #a8bad0;
+    --accent: #43dfc0;
     --border: rgba(255,255,255,.1);
 }
 
@@ -22,136 +23,127 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
     background: var(--bg);
     color: var(--text);
-    font-family: Arial, Helvetica, sans-serif;
     line-height: 1.7;
 }
 
-header {
-    padding: 20px 7%;
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.topbar {
+    padding: 18px 7%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 16px;
+    justify-content: space-between;
+    gap: 20px;
     flex-wrap: wrap;
     border-bottom: 1px solid var(--border);
-    background: #091625;
+    background: #091523;
 }
 
 .logo {
-    font-size: 21px;
-    font-weight: bold;
-    color: var(--accent);
+    font-size: 23px;
+    font-weight: 800;
     letter-spacing: 1px;
 }
 
-nav {
+.logo span { color: var(--accent); }
+
+.topbar nav {
     display: flex;
+    gap: 20px;
     flex-wrap: wrap;
-    gap: 18px;
 }
 
-nav a {
-    color: var(--text);
-    text-decoration: none;
+.topbar nav a {
+    color: var(--muted);
     font-size: 14px;
 }
 
-nav a:hover {
-    color: var(--accent);
-}
+.topbar nav a:hover { color: var(--accent); }
 
 .hero {
-    min-height: 540px;
-    display: flex;
+    padding: 70px 7%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding: 65px 7%;
-    background:
-        linear-gradient(90deg, rgba(5,14,25,.96),
-        rgba(5,14,25,.72) 48%, rgba(5,14,25,.15)),
-        url("https://commons.wikimedia.org/wiki/Special:FilePath/Yangtze%20river%20three%20gorges.jpg?width=1600")
-        center 50% / cover no-repeat;
+    gap: 40px;
+    background: radial-gradient(ellipse at 80% 15%, #123a43 0%, transparent 45%);
 }
 
-.hero-content {
-    max-width: 720px;
-}
-
-.tag {
-    display: inline-block;
-    padding: 6px 13px;
-    border: 1px solid rgba(54,224,192,.5);
-    border-radius: 30px;
+.eyebrow {
     color: var(--accent);
-    font-size: 13px;
-    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
 h1 {
-    font-size: clamp(40px, 6vw, 68px);
+    font-size: clamp(42px, 6vw, 72px);
     line-height: 1.08;
     margin-bottom: 22px;
 }
 
-h1 span {
-    color: var(--accent);
-}
+h1 span { color: var(--accent); }
 
 .hero p {
-    color: #d4e0ed;
-    max-width: 620px;
+    color: var(--muted);
     font-size: 17px;
+    margin-bottom: 25px;
 }
 
 .button {
     display: inline-block;
-    margin-top: 28px;
-    padding: 12px 22px;
-    border-radius: 9px;
     background: var(--accent);
-    color: #07111f;
-    text-decoration: none;
+    color: #06151b;
+    padding: 13px 22px;
+    border-radius: 10px;
     font-weight: bold;
-    transition: .2s;
 }
 
-.button:hover {
-    transform: translateY(-3px);
-    background: #73f5dc;
+.button:hover { background: #7bf2db; }
+
+.hero img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid var(--border);
 }
 
-.container {
-    width: min(1120px, 86%);
-    margin: auto;
+.caption {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 8px;
 }
 
 .stats {
+    padding: 0 7% 45px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
-    margin-top: -35px;
-    position: relative;
 }
 
 .stat {
-    background: var(--panel);
+    padding: 22px;
     border: 1px solid var(--border);
-    padding: 22px 18px;
-    border-radius: 14px;
-    text-align: center;
+    border-radius: 15px;
+    background: var(--panel);
 }
 
 .stat strong {
     display: block;
     font-size: 25px;
     color: var(--accent);
-    margin-bottom: 4px;
 }
 
 .stat span {
@@ -159,465 +151,426 @@ h1 span {
     font-size: 13px;
 }
 
-section {
-    padding: 78px 0;
+main { padding: 15px 7% 65px; }
+
+section.content-section {
+    margin-top: 45px;
+    scroll-margin-top: 25px;
 }
 
 .section-label {
     color: var(--accent);
-    font-size: 12px;
-    letter-spacing: 2px;
     text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
     font-weight: bold;
+    margin-bottom: 7px;
 }
 
 h2 {
-    font-size: clamp(28px, 4vw, 40px);
+    font-size: clamp(28px, 4vw, 39px);
     line-height: 1.2;
-    margin: 10px 0 20px;
+    margin-bottom: 24px;
 }
 
-.intro {
-    color: var(--muted);
-    max-width: 780px;
-    margin-bottom: 30px;
+h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 24px;
+    align-items: stretch;
 }
 
 .card {
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 18px;
     overflow: hidden;
 }
 
 .card img {
     display: block;
     width: 100%;
-    height: 280px;
+    height: 260px;
     object-fit: cover;
-    background: #17283a;
 }
 
-.card-content {
-    padding: 23px;
+.card-body { padding: 24px; }
+
+p { margin-bottom: 14px; }
+
+.card-body p,
+.text-panel p,
+.fact p { color: var(--muted); }
+
+.card-body p:last-child,
+.text-panel p:last-child { margin-bottom: 0; }
+
+.text-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 27px;
 }
 
-.card h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.card p {
-    color: var(--muted);
-}
-
-.caption {
-    font-size: 12px;
-    color: #93a9bd;
-    padding: 0 23px 18px;
-}
-
-.info-box {
-    background: linear-gradient(135deg, #102c38, #102033);
-    border: 1px solid rgba(54,224,192,.22);
-    border-radius: 16px;
-    padding: 28px;
-    margin-top: 25px;
-}
-
-.info-box h3 {
-    color: var(--accent);
-    margin-bottom: 10px;
-}
-
-.info-box p {
-    color: #d0deeb;
+.wide-image {
+    display: block;
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    margin-bottom: 23px;
 }
 
 .facts {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
-    margin-top: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
 }
 
 .fact {
-    padding: 23px;
-    border-radius: 14px;
     background: var(--panel);
     border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 22px;
 }
 
-.fact .number {
-    font-size: 27px;
+.fact strong {
+    display: block;
     color: var(--accent);
-    font-weight: bold;
+    font-size: 17px;
+    margin-bottom: 7px;
 }
 
-.fact p {
+.fact p { margin-bottom: 0; }
+
+.highlight {
+    margin-top: 23px;
+    padding: 20px 23px;
+    background: rgba(67,223,192,.07);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
     color: var(--muted);
+}
+
+.river-navigation {
+    margin-top: 60px;
+    padding-top: 27px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.river-navigation a {
+    background: var(--panel2);
+    border: 1px solid var(--border);
+    padding: 12px 17px;
+    border-radius: 10px;
     font-size: 14px;
-    margin-top: 8px;
+}
+
+.river-navigation a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
 }
 
 footer {
     text-align: center;
-    padding: 30px 7%;
+    padding: 25px 7%;
     border-top: 1px solid var(--border);
     color: var(--muted);
     font-size: 13px;
 }
 
-footer a {
-    color: var(--accent);
-    text-decoration: none;
+@media (max-width: 800px) {
+    .hero, .grid { grid-template-columns: 1fr; }
+    .hero img { height: 300px; }
+    .stats { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 760px) {
-    header {
-        padding: 18px 6%;
-    }
-
-    .hero {
-        min-height: 500px;
-        padding: 55px 7%;
-        background-position: center;
-    }
-
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .grid, .facts {
-        grid-template-columns: 1fr;
-    }
-
-    .container {
-        width: 88%;
-    }
-
-    section {
-        padding: 55px 0;
-    }
-
-    .card img {
-        height: 230px;
-    }
+@media (max-width: 520px) {
+    .topbar { padding: 16px 5%; }
+    .topbar nav { gap: 12px; }
+    .hero, main { padding-left: 5%; padding-right: 5%; }
+    .stats { padding-left: 5%; padding-right: 5%; }
+    .facts { grid-template-columns: 1fr; }
+    .river-navigation { flex-direction: column; }
+    .river-navigation a { text-align: center; }
+    .wide-image { height: 250px; }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">RZEKI ŚWIATA</div>
-    <nav>
-        <a href="index.html">Strona główna</a>
+<header class="topbar">
+    <a class="logo" href="index.html">RZEKI<span> ŚWIATA</span></a>
+    <nav aria-label="Menu strony">
         <a href="#informacje">Informacje</a>
-        <a href="#zdjecia">Zdjęcia</a>
+        <a href="#geografia">Geografia</a>
         <a href="#znaczenie">Znaczenie</a>
+        <a href="#ciekawostki">Ciekawostki</a>
     </nav>
 </header>
 
-<main>
-
 <section class="hero">
-    <div class="hero-content">
-        <div class="tag">CHINY · AZJA</div>
-        <h1>Jangcy<br><span>potęga Chin</span></h1>
+    <div>
+        <div class="eyebrow">Chiny · Najdłuższa rzeka Azji</div>
+        <h1>Jangcy <span>– wielka rzeka Chin</span></h1>
         <p>
-            Jangcy, nazywana również Chang Jiang, jest najdłuższą
-            rzeką Azji. Przepływa przez różnorodne krajobrazy Chin,
-            od wysokich terenów Tybetu po gęsto zaludnione niziny
-            i wielkie miasta.
+            Jangcy, nazywana również Chang Jiang, jest najdłuższą rzeką
+            Azji i jedną z najdłuższych rzek świata. Przepływa przez Chiny,
+            przecina góry, doliny i wielkie miasta, a następnie uchodzi
+            do Morza Wschodniochińskiego.
         </p>
         <a class="button" href="#informacje">Poznaj Jangcy ↓</a>
     </div>
+
+    <div>
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/A%20view%20of%20Yangtze%20River%2C%20China%20%28Unsplash%29.jpg"
+            alt="Panorama rzeki Jangcy w Chinach">
+        <div class="caption">Rzeka Jangcy w Chinach · Wikimedia Commons</div>
+    </div>
 </section>
 
-<div class="container">
-    <div class="stats">
-        <div class="stat">
-            <strong>ok. 6300 km</strong>
-            <span>Długość rzeki</span>
-        </div>
-        <div class="stat">
-            <strong>Chiny</strong>
-            <span>Kraj, przez który płynie</span>
-        </div>
-        <div class="stat">
-            <strong>Pacyfik</strong>
-            <span>Ocean, do którego uchodzi</span>
-        </div>
-        <div class="stat">
-            <strong>Azja</strong>
-            <span>Najdłuższa rzeka kontynentu</span>
-        </div>
+<div class="stats">
+    <div class="stat">
+        <strong>około 6300 km</strong>
+        <span>Przybliżona długość rzeki</span>
+    </div>
+    <div class="stat">
+        <strong>Chiny</strong>
+        <span>Państwo, przez które przepływa Jangcy</span>
+    </div>
+    <div class="stat">
+        <strong>Morze Wschodniochińskie</strong>
+        <span>Morze, do którego uchodzi rzeka</span>
     </div>
 </div>
 
-<section id="informacje">
-    <div class="container">
-        <div class="section-label">01 / Podstawowe informacje</div>
-        <h2>Rzeka, która przecina Chiny</h2>
-        <p class="intro">
-            Jangcy ma około 6300 kilometrów długości. Jej źródła
-            znajdują się na Wyżynie Tybetańskiej, a rzeka płynie
-            przez środkowe i wschodnie Chiny. Jej ujście znajduje
-            się w pobliżu Szanghaju, gdzie wpada do Morza
-            Wschodniochińskiego, będącego częścią Oceanu Spokojnego.
-        </p>
+<main>
 
-        <div class="grid">
-            <article class="card">
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Yangtze%20river%20three%20gorges.jpg?width=1100"
-                    alt="Rzeka Jangcy płynąca pomiędzy stromymi górami Trzech Przełomów"
-                    loading="lazy">
-                <div class="card-content">
-                    <h3>Trzy Przełomy</h3>
-                    <p>
-                        Jeden z najbardziej znanych odcinków Jangcy
-                        prowadzi przez wąskie doliny i strome góry.
-                        Krajobraz tego regionu sprawia, że jest on
-                        jednym z charakterystycznych miejsc nad rzeką.
-                    </p>
-                </div>
-                <div class="caption">
-                    Jangcy w rejonie Trzech Przełomów.
-                </div>
-            </article>
+<section class="content-section" id="informacje">
+    <div class="section-label">01 / Podstawowe informacje</div>
+    <h2>Gdzie znajduje się Jangcy?</h2>
 
-            <article class="card">
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:FilePath/1%20changjiang%20yangtze%20aerial%20pano%20first%20turn%20shigu%202018.jpg?width=1200"
-                    alt="Jangcy widziana z powietrza w pobliżu Shigu w Chinach"
-                    loading="lazy">
-                <div class="card-content">
-                    <h3>Rzeka z lotu ptaka</h3>
-                    <p>
-                        Z powietrza można zobaczyć, jak Jangcy
-                        zakręca pomiędzy górami. W górnym biegu
-                        rzeka ma bardziej górski charakter,
-                        a jej dolina stopniowo się zmienia.
-                    </p>
-                </div>
-                <div class="caption">
-                    Widok z powietrza na zakole Jangcy w Chinach.
-                </div>
-            </article>
-        </div>
+    <div class="grid">
+        <article class="card">
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Yangtze%20River%20flows%20through%20Fuling.jpg"
+                alt="Rzeka Jangcy przepływająca przez okolice Fuling w Chinach"
+                loading="lazy">
+            <div class="card-body">
+                <h3>Rzeka w Chinach</h3>
+                <p>
+                    Jangcy znajduje się w Azji Wschodniej i przepływa
+                    przez terytorium Chin. Na jej trasie znajdują się
+                    górskie obszary, rozległe doliny, zbiorniki wodne
+                    i duże miasta.
+                </p>
+                <p>
+                    Rzeka jest ważną częścią chińskiej geografii,
+                    gospodarki i historii. W jej dorzeczu mieszka
+                    bardzo wielu ludzi.
+                </p>
+            </div>
+        </article>
 
-        <div class="info-box">
-            <h3>Dlaczego Jangcy jest wyjątkowa?</h3>
+        <div class="text-panel">
+            <h3>Dlaczego jest ważna?</h3>
             <p>
-                To najdłuższa rzeka płynąca w całości na terenie
-                jednego państwa. Ma ogromne znaczenie dla transportu,
-                rolnictwa, energetyki i życia mieszkańców Chin.
+                Jangcy dostarcza wodę wykorzystywaną w gospodarstwach
+                domowych, rolnictwie i przemyśle. Jest również ważnym
+                szlakiem transportowym, którym przewozi się towary.
+            </p>
+            <p>
+                Wzdłuż rzeki rozwinęły się miasta, porty i tereny
+                przemysłowe. Dolina Jangcy należy do ważnych regionów
+                gospodarczych Chin.
+            </p>
+            <p>
+                Rzeka jest także środowiskiem życia wielu gatunków
+                roślin i zwierząt oraz częścią chińskiego dziedzictwa
+                kulturowego.
             </p>
         </div>
     </div>
 </section>
 
-<section id="zdjecia">
-    <div class="container">
-        <div class="section-label">02 / Widok z kosmosu</div>
-        <h2>Jangcy widziana z satelity</h2>
-        <p class="intro">
-            Zdjęcia satelitarne pozwalają obserwować przebieg rzeki,
-            jej dolinę oraz zmiany w krajobrazie. To przydatne
-            narzędzie do badania środowiska i rozwoju infrastruktury.
-        </p>
+<section class="content-section" id="geografia">
+    <div class="section-label">02 / Geografia</div>
+    <h2>Od gór aż do morza</h2>
 
-        <div class="grid">
-            <article class="card">
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Yangtzee%20River%20%28ASTER%29.jpg?width=1100"
-                    alt="Zdjęcie satelitarne ASTER przedstawiające fragment Jangcy w Chinach"
-                    loading="lazy">
-                <div class="card-content">
-                    <h3>Obraz satelitarny ASTER</h3>
-                    <p>
-                        Obraz pokazuje fragment Jangcy na zachód
-                        od zapory Trzech Przełomów. Dane satelitarne
-                        pomagają analizować rzekę i otaczający ją teren.
-                    </p>
-                </div>
-                <div class="caption">
-                    Zdjęcie satelitarne ASTER przedstawiające dolinę Jangcy.
-                </div>
-            </article>
+    <img
+        class="wide-image"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Yangtze%20River%20from%20Fengdu%20Ghost%20City.jpg"
+        alt="Jangcy i jej dolina w pobliżu Fengdu w Chinach"
+        loading="lazy">
 
-            <article class="card">
-                <div class="card-content">
-                    <h3>Jak zmienia się rzeka?</h3>
-                    <p>
-                        Jangcy przepływa przez góry, doliny i rozległe
-                        niziny. Na jej trasie znajdują się miasta,
-                        pola uprawne, porty oraz zbiorniki wodne.
-                    </p>
-                    <br>
-                    <h3>Wielkie dorzecze</h3>
-                    <p>
-                        Do Jangcy wpływa wiele dopływów. Razem tworzą
-                        rozległy system rzeczny, który odprowadza wodę
-                        z dużej części Chin do Morza Wschodniochińskiego.
-                    </p>
-                </div>
-            </article>
+    <div class="grid">
+        <div class="text-panel">
+            <h3>Źródła rzeki</h3>
+            <p>
+                Jangcy bierze początek na Wyżynie Tybetańskiej,
+                w zachodniej części Chin. Jej górny bieg prowadzi
+                przez obszary górskie i głębokie doliny.
+            </p>
+            <p>
+                Na dalszej trasie rzeka przepływa przez różne
+                regiony Chin. Jej krajobraz zmienia się od
+                wysokich gór po rozległe niziny.
+            </p>
         </div>
+
+        <div class="text-panel">
+            <h3>Ujście do morza</h3>
+            <p>
+                W dolnym biegu Jangcy przepływa przez gęsto
+                zaludnione tereny wschodnich Chin. W pobliżu
+                Szanghaju uchodzi do Morza Wschodniochińskiego.
+            </p>
+            <p>
+                Przy ujściu tworzy rozległy obszar deltowy.
+                Jest to ważny region dla transportu, handlu,
+                rolnictwa i funkcjonowania dużych miast.
+            </p>
+        </div>
+    </div>
+
+    <div class="highlight">
+        Jangcy ma około 6300 kilometrów długości. Jest najdłuższą
+        rzeką Azji i trzecią najdłuższą rzeką świata według
+        powszechnie stosowanych zestawień.
     </div>
 </section>
 
-<section id="geografia">
-    <div class="container">
-        <div class="section-label">03 / Geografia</div>
-        <h2>Od gór do morza</h2>
-        <p class="intro">
-            Na długiej trasie Jangcy krajobraz wielokrotnie się zmienia.
-            W górnym biegu rzeka płynie przez wysokie tereny i głębokie
-            doliny, natomiast w dolnym biegu dociera do nizin
-            i obszarów silnie rozwiniętych gospodarczo.
-        </p>
+<section class="content-section" id="znaczenie">
+    <div class="section-label">03 / Ludzie i przyroda</div>
+    <h2>Rzeka, która napędza gospodarkę</h2>
 
-        <div class="grid">
-            <article class="card">
-                <div class="card-content">
-                    <h3>Górny bieg</h3>
-                    <p>
-                        Początek rzeki znajduje się na Wyżynie
-                        Tybetańskiej. Woda płynie przez obszary górskie,
-                        gdzie doliny mogą być wąskie, a teren stromy.
-                    </p>
-                </div>
-            </article>
+    <div class="grid">
+        <article class="card">
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Wu%20Gorge%20on%20Yangtze.jpg"
+                alt="Wąwóz Wu nad rzeką Jangcy"
+                loading="lazy">
+            <div class="card-body">
+                <h3>Góry i przełomy rzeczne</h3>
+                <p>
+                    W niektórych odcinkach Jangcy płynie przez
+                    strome doliny i spektakularne przełomy.
+                    Jednym z najbardziej znanych obszarów są
+                    Trzy Przełomy, które przyciągają turystów
+                    swoimi wysokimi zboczami i krajobrazami.
+                </p>
+                <p>
+                    Wzdłuż rzeki występują także tereny podmokłe,
+                    jeziora i obszary ważne dla wielu gatunków zwierząt.
+                </p>
+            </div>
+        </article>
 
-            <article class="card">
-                <div class="card-content">
-                    <h3>Dolny bieg</h3>
-                    <p>
-                        Na wschodzie Chin rzeka przepływa przez
-                        rozległe niziny, ważne obszary rolnicze
-                        i okolice dużych miast, a następnie uchodzi
-                        do Morza Wschodniochińskiego.
-                    </p>
-                </div>
-            </article>
-        </div>
-
-        <div class="info-box">
-            <h3>Trzy Przełomy i wielka zapora</h3>
+        <div class="text-panel">
+            <h3>Transport i energia</h3>
             <p>
-                Na Jangcy znajduje się Zapora Trzech Przełomów.
-                Jest to jedna z największych elektrowni wodnych
-                na świecie. Budowla wytwarza energię elektryczną,
-                pomaga kontrolować przepływ wody i umożliwia
-                żeglugę na części rzeki.
+                Jangcy jest jednym z najważniejszych szlaków
+                żeglugowych Chin. Statki przewożą nią surowce,
+                produkty przemysłowe i inne towary.
+            </p>
+            <p>
+                Na rzece znajduje się Zapora Trzech Przełomów,
+                jedna z największych elektrowni wodnych na świecie.
+                Wytwarza energię elektryczną i wpływa na regulację
+                przepływu wody.
+            </p>
+            <p>
+                Jednocześnie intensywne wykorzystanie rzeki oznacza
+                wyzwania związane z ochroną przyrody, jakością wody
+                i zachowaniem naturalnych siedlisk.
             </p>
         </div>
     </div>
 </section>
 
-<section id="znaczenie">
-    <div class="container">
-        <div class="section-label">04 / Znaczenie dla ludzi</div>
-        <h2>Rzeka, która napędza gospodarkę</h2>
-        <p class="intro">
-            Jangcy od tysięcy lat jest ważnym szlakiem transportowym.
-            Dziś wspiera przemysł, rolnictwo, produkcję energii
-            i zaopatrzenie w wodę. Wzdłuż jej biegu rozwinęły się
-            liczne miasta i obszary przemysłowe.
-        </p>
+<section class="content-section" id="ciekawostki">
+    <div class="section-label">04 / Warto wiedzieć</div>
+    <h2>Ciekawostki o Jangcy</h2>
 
-        <div class="facts">
-            <div class="fact">
-                <div class="number">Transport</div>
-                <h3>Droga wodna</h3>
-                <p>
-                    Rzeka umożliwia przewóz towarów i łączy
-                    wiele regionów Chin.
-                </p>
-            </div>
-
-            <div class="fact">
-                <div class="number">Energia</div>
-                <h3>Elektrownie wodne</h3>
-                <p>
-                    Woda przepływająca przez turbiny pozwala
-                    wytwarzać energię elektryczną.
-                </p>
-            </div>
-
-            <div class="fact">
-                <div class="number">Przyroda</div>
-                <h3>Różnorodność życia</h3>
-                <p>
-                    Rzeka i jej dopływy tworzą siedliska
-                    dla wielu gatunków roślin i zwierząt.
-                </p>
-            </div>
+    <div class="facts">
+        <div class="fact">
+            <strong>01. Najdłuższa w Azji</strong>
+            <p>
+                Jangcy ma około 6300 kilometrów długości i jest
+                najdłuższą rzeką kontynentu azjatyckiego.
+            </p>
         </div>
 
-        <div class="info-box">
-            <h3>Wyzwania środowiskowe</h3>
+        <div class="fact">
+            <strong>02. Trzy Przełomy</strong>
             <p>
-                Rozwój miast, przemysłu i infrastruktury wpływa
-                na środowisko rzeki. Dlatego ważne jest ograniczanie
-                zanieczyszczeń, ochrona siedlisk oraz odpowiedzialne
-                gospodarowanie wodą.
+                Odcinek znany jako Trzy Przełomy słynie ze stromych
+                zboczy, wysokich gór i malowniczych widoków.
+            </p>
+        </div>
+
+        <div class="fact">
+            <strong>03. Ogromne znaczenie</strong>
+            <p>
+                Rzeka zapewnia wodę milionom ludzi i odgrywa ważną
+                rolę w chińskim rolnictwie oraz przemyśle.
+            </p>
+        </div>
+
+        <div class="fact">
+            <strong>04. Zapora Trzech Przełomów</strong>
+            <p>
+                Na Jangcy zbudowano ogromną zaporę, która służy
+                między innymi do produkcji energii elektrycznej.
+            </p>
+        </div>
+
+        <div class="fact">
+            <strong>05. Wiele krajobrazów</strong>
+            <p>
+                W górnym biegu rzeka płynie przez tereny górskie,
+                a w dolnym przez niziny i obszary wielkich miast.
+            </p>
+        </div>
+
+        <div class="fact">
+            <strong>06. Ujście do morza</strong>
+            <p>
+                Jangcy uchodzi do Morza Wschodniochińskiego
+                w pobliżu Szanghaju, tworząc rozległą deltę.
             </p>
         </div>
     </div>
-</section>
 
-<section id="ciekawostki">
-    <div class="container">
-        <div class="section-label">05 / Ciekawostki</div>
-        <h2>Co warto zapamiętać?</h2>
-
-        <div class="facts">
-            <div class="fact">
-                <div class="number">01</div>
-                <h3>Najdłuższa w Azji</h3>
-                <p>
-                    Jangcy jest najdłuższą rzeką kontynentu
-                    azjatyckiego.
-                </p>
-            </div>
-
-            <div class="fact">
-                <div class="number">02</div>
-                <h3>Wiele nazw</h3>
-                <p>
-                    W języku chińskim jest znana jako Chang Jiang,
-                    co można przetłumaczyć jako „Długa Rzeka”.
-                </p>
-            </div>
-
-            <div class="fact">
-                <div class="number">03</div>
-                <h3>Ogromna zapora</h3>
-                <p>
-                    Zapora Trzech Przełomów jest jednym
-                    z najbardziej znanych obiektów na tej rzece.
-                </p>
-            </div>
-        </div>
+    <div class="highlight">
+        Jangcy to jedna z najważniejszych rzek świata:
+        łączy górskie obszary Chin z wielkimi miastami na wschodzie
+        i ma ogromne znaczenie dla ludzi oraz gospodarki.
     </div>
 </section>
+
+<nav class="river-navigation" aria-label="Nawigacja między rzekami">
+    <a href="amazonka.html">← Poprzednia rzeka: Amazonka</a>
+    <a href="index.html">⌂ Strona główna</a>
+    <a href="missisipi.html">Następna rzeka: Missisipi →</a>
+</nav>
 
 </main>
 
 <footer>
-    <p>Projekt szkolny: <strong>5 najdłuższych rzek świata</strong></p>
-    <p>Zdjęcia: Wikimedia Commons.</p>
-    <p><a href="index.html">← Powrót do strony głównej</a></p>
+    <p>Rzeki świata | Projekt edukacyjny</p>
 </footer>
 
 </body>
